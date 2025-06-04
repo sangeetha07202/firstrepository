@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flight Takeoff Animation</title>
+  <style>
+    body {
+      margin: 0;
+      background: #87CEEB; /* Sky blue */
+    }
+    svg {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <svg viewBox="0 0 800 600">
+    <!-- Runway -->
+    <rect x="0" y="500" width="800" height="100" fill="#333" />
+    <line x1="0" y1="550" x2="800" y2="550" stroke="#fff" stroke-width="4" stroke-dasharray="20,10" />
+
+    <!-- Airplane -->
+    <g id="airplane">
+      <!-- Simple plane shape -->
+      <polygon points="0,0 60,10 70,5 60,0 70,-5 60,-10 0,-5" fill="white" stroke="black" stroke-width="1"/>
+    </g>
+
+    <!-- Animation -->
+    <animateTransform
+      xlink:href="#airplane"
+      attributeName="transform"
+      type="translate"
+      from="0 500"
+      to="900 100"
+      dur="5s"
+      repeatCount="indefinite"
+      begin="0s"
+      fill="freeze" />
+
+    <animateTransform
+      xlink:href="#airplane"
+      attributeName="transform"
+      type="rotate"
+      from="0 0 0"
+      to="-20 0 0"
+      dur="1.5s"
+      begin="0s"
+      fill="freeze" />
+  </svg>
+</body>
+</html>
