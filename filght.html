@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flight Takeoff Animation with Background</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+    }
+    .background {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+ 
+  <img class="background" src="fyhr.webp" alt="Airport Background" />
+
+ 
+  <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+    
+    <path id="flightPath" fill="none" d="M 0 450 Q 400 500 800 50" />
+
+    <g id="planeGroup">
+
+     <image href="Transport_Plane_Lineal_Color-512.webp" x="-75" y="-75" width="150" height="150" />
+      
+      <animateMotion dur="6s" repeatCount="indefinite" fill="freeze" keyTimes="0;0.4;1" keySplines="0.2 0 0.8 1; 0.4 0 0.6 1" calcMode="spline">
+        <mpath href="#flightPath" />
+      </animateMotion>
+
+      
+      <animateTransform attributeName="transform"
+                        type="rotate"
+                        from="10"
+                        to="-20"
+                        begin="2.4s" dur="1.5s"
+                        fill="freeze"
+                        additive="sum" />
+    </g>
+  </svg>
+</body>
+</html>
